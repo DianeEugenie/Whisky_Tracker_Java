@@ -17,7 +17,7 @@ public class DistilleryController {
     @Autowired
     DistilleryRepository distilleryRepository;
 
-    @GetMapping(value = "/{region}")
+    @GetMapping(value = "region/{region}")
     public List<Distillery> getDistilleriesByRegion(@PathVariable String region){
         return distilleryRepository.getDistilleriesByRegion(region);
     }
