@@ -9,4 +9,6 @@ public interface WhiskyRepositoryCustom {
     List<Whisky> getWhiskiesWithYear(int year);
 
     List<Whisky> getWhiskiesFromADistilleryOfASpecificAge(Long id, int age);
+
+    List<Whisky> getWhiskiesFromParticularRegion(String region);
 }
