@@ -19,7 +19,7 @@ public class DistilleryController {
 
     @GetMapping(value = "region/{region}")
     public List<Distillery> getDistilleriesByRegion(@PathVariable String region){
-        return distilleryRepository.getDistilleriesByRegion(region);
+        return distilleryRepository.findByRegion(region);
     }
 
     @GetMapping(value = "custom/region/{region}")

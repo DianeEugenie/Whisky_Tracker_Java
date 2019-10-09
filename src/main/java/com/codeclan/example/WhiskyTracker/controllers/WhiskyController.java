@@ -20,12 +20,12 @@ public class WhiskyController {
 
     @GetMapping(value = "year/{year}")
     public List<Whisky> getWhiskiesByYear(@PathVariable int year){
-        return whiskyRepository.getWhiskiesByYear(year);
+        return whiskyRepository.findByYear(year);
     }
 
     @GetMapping(value = "distillery/{id}/age/{age}")
     public List<Whisky> getWhiskiesByDistilleryIdAndAge(@PathVariable Long id, @PathVariable int age){
-        return whiskyRepository.getWhiskiesByDistilleryIdAndAge(id, age);
+        return whiskyRepository.findByDistilleryIdAndAge(id, age);
     }
 
     @GetMapping(value = "custom/year/{year}")
@@ -45,7 +45,7 @@ public class WhiskyController {
 
     @GetMapping(value = "region/{region}")
     public List<Whisky> getWhiskiesByRegion(@PathVariable String region){
-        return whiskyRepository.getWhiskiesByDistilleryRegion(region);
+        return whiskyRepository.findByDistilleryRegion(region);
     }
 
 
