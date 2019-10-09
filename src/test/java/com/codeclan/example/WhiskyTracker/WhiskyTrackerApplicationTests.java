@@ -46,4 +46,10 @@ public class WhiskyTrackerApplicationTests {
 		assertEquals(1, foundWhiskies.size());
 	}
 
+	@Test
+	public void canGetWhiskiesByYear_TheCustomWay(){
+		List<Whisky> foundWhiskies = whiskyRepository.getWhiskiesWithYear(2018);
+		assertEquals(2, foundWhiskies.size());
+	}
+
 }
