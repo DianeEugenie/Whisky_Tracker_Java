@@ -22,4 +22,9 @@ public class DistilleryController {
         return distilleryRepository.getDistilleriesByRegion(region);
     }
 
+    @GetMapping(value = "custom/region/{region}")
+    public List<Distillery> getDistilleriesFromRegion(@PathVariable String region){
+        return distilleryRepository.getDistilleriesFromRegion(region);
+    }
+
 }

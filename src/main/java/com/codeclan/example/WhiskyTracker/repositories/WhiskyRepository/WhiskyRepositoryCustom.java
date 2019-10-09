@@ -7,4 +7,6 @@ import java.util.List;
 public interface WhiskyRepositoryCustom {
 
     List<Whisky> getWhiskiesWithYear(int year);
+
+    List<Whisky> getWhiskiesFromADistilleryOfASpecificAge(Long id, int age);
 }

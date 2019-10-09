@@ -1,6 +1,7 @@
 package com.codeclan.example.WhiskyTracker.repositories.WhiskyRepository;
 
 
+import com.codeclan.example.WhiskyTracker.models.Distillery;
 import com.codeclan.example.WhiskyTracker.models.Whisky;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -33,7 +34,24 @@ public class WhiskyRepositoryImpl implements WhiskyRepositoryCustom {
         }
 
         return foundWhiskies;
+    }
 
+    @Transactional
+    public List<Whisky> getWhiskiesFromADistilleryOfASpecificAge(Long id, int age) {
+
+        List<Whisky> foundWhiskies = null;
+        Session session = entityManager.unwrap(Session.class);
+
+        try{
+            Criteria cr = session.createCriteria(Distillery.class);
+            cr.createAlias("whiskies", "whisky");
+            cr.add(Restrictions.eq("whisky.distillery", id));
+            cr.add(Restrictions.eq("whisky.age", age));
+        } catch(HibernateException e) {
+            e.printStackTrace();
+        }
+
+        return foundWhiskies;
     }
 
 }
