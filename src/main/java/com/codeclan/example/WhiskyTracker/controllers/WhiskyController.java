@@ -23,7 +23,7 @@ public class WhiskyController {
         return whiskyRepository.getWhiskiesByYear(year);
     }
 
-    @GetMapping(value = "/distillery/{id}/age/{age}")
+    @GetMapping(value = "distillery/{id}/age/{age}")
     public List<Whisky> getWhiskiesByDistilleryIdAndAge(@PathVariable Long id, @PathVariable int age){
         return whiskyRepository.getWhiskiesByDistilleryIdAndAge(id, age);
     }
@@ -31,6 +31,11 @@ public class WhiskyController {
     @GetMapping(value = "custom/year/{year}")
     public List<Whisky> getWhiskiesWithYear(@PathVariable int year){
         return whiskyRepository.getWhiskiesWithYear(year);
+    }
+
+    @GetMapping(value = "custom/distillery/{id}/age/{age}")
+    public List<Whisky> getWhiskiesFromDistilleryIdAndAge(@PathVariable Long id, @PathVariable int age){
+        return whiskyRepository.getWhiskiesFromADistilleryOfASpecificAge(id, age);
     }
 
 
